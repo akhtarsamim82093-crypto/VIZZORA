@@ -1,1 +1,156 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VIZZORA - Watch Videos</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f7f8fa;
+      color: #171717;
+    }
+    header {
+      background: #111827;
+      color: white;
+      padding: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .logo { font-size: 27px; font-weight: bold; }
+    .search {
+      padding: 11px;
+      border-radius: 22px;
+      border: 1px solid #ccc;
+      max-width: 260px;
+      width: 100%;
+    }
+    nav {
+      background: white;
+      padding: 15px;
+      display: flex;
+      gap: 22px;
+      overflow-x: auto;
+      border-bottom: 1px solid #ddd;
+    }
+    nav a { color: #222; text-decoration: none; }
+    main { padding: 18px; }
+    h1 { font-size: 25px; }
+    .shorts {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+    }
+    .short {
+      min-width: 110px;
+      height: 170px;
+      border-radius: 14px;
+      background: linear-gradient(145deg,#7c3aed,#ec4899,#f59e0b);
+      color: white;
+      display: flex;
+      align-items: end;
+      padding: 10px;
+      font-weight: bold;
+    }
+    .videos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+      gap: 18px;
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px #00000012;
+    }
+    .thumb {
+      height: 145px;
+      background: linear-gradient(135deg,#2563eb,#9333ea);
+      display: grid;
+      place-items: center;
+      color: white;
+      font-size: 42px;
+    }
+    .info { padding: 13px; }
+    .info p { color: #666; font-size: 14px; }
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">▶ VIZZORA</div>
+    <input class="search" id="search" placeholder="Search videos...">
+  </header>
 
+  <nav>
+    <a href="#">Home</a>
+    <a href="#shorts">Shorts</a>
+    <a href="#videos">Videos</a>
+    <a href="#about">About</a>
+  </nav>
+
+  <main>
+    <h1>Welcome to VIZZORA</h1>
+    <p>Discover videos. Enjoy shorts. Share your creativity.</p>
+
+    <h2 id="shorts">🔥 Trending Shorts</h2>
+    <div class="shorts">
+      <div class="short">Shorts 1</div>
+      <div class="short">Shorts 2</div>
+      <div class="short">Shorts 3</div>
+      <div class="short">Shorts 4</div>
+    </div>
+
+    <h2 id="videos">🎬 Explore Videos</h2>
+    <div class="videos" id="videoList">
+      <div class="card">
+        <div class="thumb">▶</div>
+        <div class="info">
+          <b>Welcome to VIZZORA</b>
+          <p>Your video journey starts here.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="thumb">▶</div>
+        <div class="info">
+          <b>Creative World</b>
+          <p>Discover something new every day.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="thumb">▶</div>
+        <div class="info">
+          <b>Entertainment Hub</b>
+          <p>More videos, more fun.</p>
+        </div>
+      </div>
+    </div>
+
+    <section id="about">
+      <h2>About VIZZORA</h2>
+      <p>A simple beginning for a new video-sharing platform.</p>
+    </section>
+  </main>
+
+  <footer>© 2026 VIZZORA. All rights reserved.</footer>
+
+  <script>
+    document.getElementById('search').addEventListener('input', function() {
+      const query = this.value.toLowerCase();
+      document.querySelectorAll('#videoList .card').forEach(function(card) {
+        card.style.display = card.innerText.toLowerCase().includes(query)
+          ? '' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>
